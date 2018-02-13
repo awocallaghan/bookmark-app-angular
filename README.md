@@ -1,6 +1,6 @@
 # BookmarksApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5. For the given specification see `spec.md` and for technical design info see `tdd.md`.
 
 ## Development server
 

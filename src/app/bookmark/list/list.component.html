@@ -1,0 +1,26 @@
+<h2>Saved Bookmarks</h2>
+<span>Showing {{ bookmarks.length }} of {{ total }} bookmarks on page {{ page + 1 }}</span>
+<app-bookmark-edit-item 
+    *ngFor="let bookmark of bookmarks" 
+    [bookmark]="bookmark"
+    (onDelete)="delete(bookmark)"
+    (onUpdate)="update($event)"
+></app-bookmark-edit-item>
+<div class="pagination">
+    <a  *ngIf="page !== 0"
+        [routerLink]="'/overview/' + (page - 1)"
+    >
+        &lt;
+    </a>
+    <a  *ngFor="let i of pages" 
+        [routerLink]="'/overview/' + i"
+        [ngClass]="{ 'active': page == i }"
+    >
+        {{ i + 1 }}
+    </a>
+    <a  *ngIf="page !== pages.length - 1"
+        [routerLink]="'/overview/' + (page + 1)"
+    >
+        &gt;
+    </a>
+</div>

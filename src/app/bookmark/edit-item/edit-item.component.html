@@ -1,0 +1,19 @@
+<div class="bookmark-item">
+    <div [hidden]="editing">
+        <div>
+            <strong>Bookmark URL</strong>
+            <span>{{ bookmark.protocol }}{{ bookmark.url }}</span>
+        </div>
+        <button (click)="edit()" class="default">Edit</button>
+        <button (click)="delete()" class="danger">Delete</button>
+    </div>
+    <div [hidden]="!editing">
+        <app-bookmark-form
+            [bookmark]="bookmark"
+            buttonText="Save"
+            (completeEvent)="update($event)"
+            showCancel="true"
+            (cancelEvent)="cancelEdit()"
+        ></app-bookmark-form>
+    </div>
+</div>

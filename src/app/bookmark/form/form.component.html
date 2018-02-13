@@ -1,0 +1,28 @@
+<form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <label>Bookmark URL</label>
+    <div class="input-group">
+        <select formControlName="protocol">
+            <option value="https://">https://</option>
+            <option value="http://">http://</option>
+        </select>
+        <input type="text" class="form-control"
+            formControlName="url"
+            required
+            (keyup)="onKey(url.value)"
+        />
+    </div>
+    <div *ngIf="(url.invalid && (url.dirty || url.touched)) || errors.length !== 0"
+         class="alert alert-danger">
+        <ul>
+            <li [hidden]="url.errors == null || !url.errors.required">Please provide a url</li>
+            <li [hidden]="url.errors == null || !url.errors.pattern">Please provide a valid url</li>
+            <li [hidden]="errors.length === 0"
+                *ngFor="let error of errors">
+                {{ error }}
+            </li>
+        </ul>
+    </div>
+    <button type="submit" [disabled]="submitting || form.invalid" class="success">{{ buttonText }}</button>
+    <button type="button" *ngIf="showCancel" (click)="onCancel.emit(true)" class="default">Cancel</button>
+    <span [hidden]="!submitting">Loading...</span>
+</form>

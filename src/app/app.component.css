@@ -1,0 +1,31 @@
+/*
+ * Layout
+ */
+.container {
+    margin: 0 auto;
+    max-width: 95%;
+}
+@media screen and (min-width: 800px) {
+    .container {
+        width: 768px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 1124px;
+    }
+}
+
+/*
+ * Header
+ */
+header {
+    background-color: #e5e5e5;
+    border-bottom: 1px solid #3b8f99;
+    margin-bottom: 1em;
+}
+header h1 {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    padding: 1em 0;
+}
